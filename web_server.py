@@ -34,12 +34,9 @@ class WebServer:
     def _process_request(self, conn, papers):
         try:
             request = conn.recv(1024).decode()
-            print(f"Received request: {request.split('\\r\\n')[0]}")
-            print(f"Request: {request}")
             
             request_line = request.split('\r\n')[0]
             method, path, version = request_line.split(' ')
-            print(f"Processing {method} request for {path}")
             
             if path == '/':
                 self._serve_index(conn, papers)
@@ -79,7 +76,6 @@ class WebServer:
             html = html.replace('{{papers_content}}', papers_content)
             
             self._send_response(conn, html)
-            print("Served index page")
         except OSError as e:
             print(f"Error reading template files: {e}")
             self._serve_error(conn)
@@ -95,7 +91,6 @@ class WebServer:
             with open('templates/style.css', 'r') as f:
                 css = f.read()
             self._send_response(conn, css, content_type="text/css")
-            print("Served CSS")
         except OSError as e:
             print(f"Error reading CSS file: {e}")
             self._serve_error(conn)
