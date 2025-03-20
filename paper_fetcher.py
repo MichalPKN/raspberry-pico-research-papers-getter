@@ -41,17 +41,6 @@ class PaperFetcher:
             self.papers.extend(new_papers)
             self.papers = self.papers[-self.max_papers:]
         
-        # print("home: ", os.path.expanduser("~"))
-        # print("cwd: ", os.getcwd())
-        # if not os.path.exists("papers"):
-        #     print(f"Directory papers does not exist. Creating it...")
-        #     os.makedirs("papers")
-        # else:
-        #     print(f"Directory papers already exists.")
-            
-        #print("list of files in current directory: ", os.listdir())
-        #print("list of files in papers: ", os.listdir("papers"))
-        
         with open("papers/papers.json", "w") as f:
             ujson.dump(self.papers, f)
     
@@ -116,10 +105,9 @@ class PaperFetcher:
                         
                         new_papers.append(paper)
                         self.paper_ids.add(paper_id)
+                        time.sleep(5) # avoid gemini rate limits
                     except Exception as e:
                         print(f"Error parsing paper: {e}")
-                
-                time.sleep(2)
                 
             except Exception as e:
                 print(f"Error fetching papers for keyword '{keyword}': {e}")

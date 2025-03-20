@@ -48,6 +48,7 @@ class WebServer:
                 self._serve_404(conn)
                 
         except Exception as e:
+            raise e
             print(f"Error processing request: {e}")
             self._serve_error(conn)
     
@@ -61,7 +62,6 @@ class WebServer:
                     paper_template = f.read()
                 
                 for paper in papers:
-                    print(f"Paper: {paper}")
                     paper_html = paper_template
                     paper_html = paper_html.replace('{{title}}', paper['title'])
                     paper_html = paper_html.replace('{{summary}}', "AI summary: " + paper['summary'])

@@ -61,7 +61,6 @@ def main():
         
         while True:
             current_time = time.time()
-            
             if current_time - last_check_time >= CHECK_INTERVAL:
                 led.on()
                 print("Checking for new papers...")

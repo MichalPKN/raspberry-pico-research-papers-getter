@@ -11,7 +11,7 @@ KEYWORDS = [
 CHECK_INTERVAL = 90       # Check for new papers
 #RETRY_INTERVAL = 4
 
-MAX_PAPERS = 10
+MAX_PAPERS = 8
 
 # Google gemini API key
 API_KEY = API_KEY_SECRET
