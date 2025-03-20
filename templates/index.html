@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Research Paper Tracker</title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h1>Research Paper Tracker</h1>
+    <p>Last updated: {{datetime}}</p>
+    <div class="papers">
+        {{papers_content}}
+    </div>
+    <script>
+        // Auto-refresh every 10 minutes
+        setTimeout(function() {
+            location.reload();
+        }, 600000);
+    </script>
+</body>
+</html>

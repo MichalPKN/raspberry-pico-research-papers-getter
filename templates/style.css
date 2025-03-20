@@ -1,0 +1,29 @@
+body { 
+    font-family: Arial, 
+    sans-serif; 
+    margin: 0; 
+    padding: 20px; 
+    background-color: #f5f5f5; 
+}
+h1 { 
+    color: #333; 
+}
+.paper { 
+    background-color: white; 
+    margin-bottom: 15px; 
+    padding: 15px; 
+    border-radius: 5px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+}
+.paper h2 { 
+    margin-top: 0; 
+    font-size: 1.2em; 
+}
+.paper p { 
+    margin: 5px 0; 
+}
+.meta { 
+    color: #666; 
+    font-size: 0.9em; 
+}
+
