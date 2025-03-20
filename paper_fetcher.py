@@ -17,14 +17,12 @@ class PaperFetcher:
         except OSError:
             try:
                 with open("papers", "r") as f:
-                    print("'papers' exists as a file!")
+                    print("'papers' exists as a file")
                 os.remove("papers")
                 os.mkdir("papers")
             except:
-                print("'papers' is not a file")
-            #raise
-            #print("Directory papers already exists")
-            pass
+                pass
+            pass # Directory already exists
         
         self._load_papers()
     
@@ -104,9 +102,8 @@ class PaperFetcher:
                         published_end = entry.find("</published>")
                         published = entry[published_start:published_end].strip()
                         
-                        print(f"Found paper: {title}")
+                        print(f"Found new paper: {title}")
                         summary = get_llm_summary(summary)
-                        print(f"Summary: {summary}")
                         
                         paper = {
                             "id": paper_id,
